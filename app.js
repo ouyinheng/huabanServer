@@ -5,11 +5,10 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
-const fs = require('fs')
 const utils = require('./src/utls/utils')
 
-const index = require('./routes/index')
-const users = require('./routes/users')
+const index = require('./src/routes/index')
+const users = require('./src/routes/users')
 
 // error handler
 onerror(app)
@@ -40,26 +39,9 @@ app.use(users.routes(), users.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
-  console.error('server error', err)
-  fs.readdir('./log/error', (error, files) => {
-    if(files) {
-      let timestamp = utils.getTime();
-      let str = JSON.stringify(err)+'\n'+JSON.stringify(ctx)
-      fs.writeFile('./log/error/error.log-'+timestamp+'.txt', str, (errs) => {
-        if(errs) {
-          console.log('写入失败', errs)
-        } else
-        console.log('写入成功')
-      })
-    } else {
-      fs.mkdir('./log/error', (err) => {
-        if (err) {
-            return console.error(err);
-        }
-        console.log("目录创建成功。");
-      })
-    }
-  })
+  console.log('server error------------', err.stack, '------------')
+  console.error('ctx', ctx)
+  utils.setErrorLog(err, ctx)
 });
 
 module.exports = app
