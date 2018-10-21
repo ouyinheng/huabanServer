@@ -1,6 +1,8 @@
 const router = require('koa-router')()
 const test = require('../db/login');
 const utils = require('../utls/utils');
+const jwt = require('jsonwebtoken');
+
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
     title: 'Hello Koa 2!!'
@@ -42,5 +44,20 @@ router.get('/times', async(ctx, next) => {
   let s = utils.getTime('yyyy-MM-dd hh:mm:ss')
   ctx.body = s
   next();
+})
+
+router.get('/jwt', async (ctx, next) => {
+  var token = jwt.sign('', app.get('superSecret'), {
+      expiresIn : 60*60*24// 授权时效24小时
+  });
+  ctx.json({
+    success: true,
+    message: '请使用您的授权码',
+    token: token
+  })
+})
+
+router.get('/mz', async (ctx, next) => {
+
 })
 module.exports = router
