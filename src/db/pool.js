@@ -1,13 +1,18 @@
 const mysql = require('mysql2');
 let pool = global.pool;
 if(!pool) {
-    pool = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '123456',
-        database: 'wechat'
-    });
-    global.pool = pool;
+    try {
+        pool = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '123456',
+            database: 'wechat'
+        });
+        global.pool = pool;
+    } catch(e) {
+        throw new Error('错误提示:', e)
+    }
+    
 }
 function getConnection(){
     return new Promise(function(resolve,reject){
