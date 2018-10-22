@@ -6,6 +6,7 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const utils = require('./src/utls/utils')
+const cors = require('koa-cors');
 
 const index = require('./src/routes/index')
 const users = require('./src/routes/users')
@@ -13,6 +14,20 @@ const picture = require('./src/routes/picture')
 
 // error handler
 onerror(app)
+// 跨域
+app.use(cors({
+  origin: function (ctx) {
+      if (ctx.url === '/cors') {
+          return "*"; // 允许来自所有域名请求
+      }
+      return 'http://localhost:4200';
+  },
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  maxAge: 5,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'DELETE'], //设置允许的HTTP请求类型
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}));
 
 // middlewares
 app.use(bodyparser({
