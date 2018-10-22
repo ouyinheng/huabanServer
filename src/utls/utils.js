@@ -64,7 +64,7 @@ function getTime(format='yyyy-MM-dd') {
  */
 function setErrorLog(err, ctx) {
   let content = `
-    ${getTime('yyyy-MM-dd hh-mm-ss')}:
+    ${getTime('yyyy-MM-dd hh:mm:ss')}:
     method: ${ctx.method}
     url: ${ctx.url}
     host: ${ctx.header.host}
