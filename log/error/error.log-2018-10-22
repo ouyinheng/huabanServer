@@ -89,3 +89,33 @@
 
     
   
+    2018-10-22 20:2:47:
+    method: GET
+    url: /picture
+    host: localhost:3000
+    connection: keep-alive
+    cookie: _ga=GA1.1.371259478.1537972321; UM_distinctid=16697011b0f467-0ecd137708b8e9-182e1503-1fa400-16697011b114d3; CNZZDATA30056528=cnzz_eid%3D1774080586-1540128557-%26ntime%3D1540128557
+    accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    response: {"status":500,"message":"参数格式错误","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"GET","url":"/picture","header":{"host":"localhost:3000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate, br","accept-language":"zh-CN,zh;q=0.9","cookie":"_ga=GA1.1.371259478.1537972321; UM_distinctid=16697011b0f467-0ecd137708b8e9-182e1503-1fa400-16697011b114d3; CNZZDATA30056528=cnzz_eid%3D1774080586-1540128557-%26ntime%3D1540128557"}}
+    error: 
+    Error: 参数格式错误
+    at router.get (/home/oyh/Documents/work/weChat/weChat-serve/src/routes/picture.js:11:15)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/lib/router.js:351:31)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-compose/index.js:42:32)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/lib/router.js:332:32)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-compose/index.js:42:32)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-router/lib/router.js:332:32)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-compose/index.js:42:32)
+    at app.use (/home/oyh/Documents/work/weChat/weChat-serve/app.js:47:9)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-compose/index.js:42:32)
+    at views (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/home/oyh/Documents/work/weChat/weChat-serve/node_modules/koa-compose/index.js:42:32)
+
+    
+  

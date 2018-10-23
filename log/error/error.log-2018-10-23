@@ -127,3 +127,37 @@
 
     
   
+    2018-10-23 21:1:7:
+    method: POST
+    url: /author
+    host: 192.168.31.57:3000
+    connection: keep-alive
+    cookie: undefined
+    accept: application/json, text/plain, */*
+    response: {"status":404,"message":"Not Found","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"POST","url":"/author","header":{"host":"192.168.31.57:3000","connection":"keep-alive","content-length":"39","accept":"application/json, text/plain, */*","origin":"http://localhost:4200","user-agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36","content-type":"application/json","referer":"http://localhost:4200/huaban/anthor/boards/undefined","accept-encoding":"gzip, deflate","accept-language":"zh-CN,zh;q=0.9"}}
+    error: 
+    Error: TypeError: Cannot read property 'split' of undefined
+    at oxios.default.get.then.catch.err (/home/oyh/Documents/work/weChat/weChat-serve/src/controllers/huaban.js:51:10)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+    
+  
+    2018-10-23 22:13:7:
+    method: POST
+    url: /author
+    host: 192.168.31.57:3000
+    connection: keep-alive
+    cookie: undefined
+    accept: application/json, text/plain, */*
+    response: {"status":404,"message":"Not Found","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"POST","url":"/author","header":{"host":"192.168.31.57:3000","connection":"keep-alive","content-length":"39","accept":"application/json, text/plain, */*","origin":"http://localhost:4200","user-agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36","content-type":"application/json","referer":"http://localhost:4200/huaban/anthor/boards/undefined","accept-encoding":"gzip, deflate","accept-language":"zh-CN,zh;q=0.9"}}
+    error: 
+    Error: TypeError: Cannot read property 'split' of undefined
+    at oxios.default.get.then.catch.err (/home/oyh/Documents/work/weChat/weChat-serve/src/controllers/huaban.js:51:10)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+    
+  
