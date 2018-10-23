@@ -34,9 +34,22 @@ class HuaBanControler {
 			}
 		})
 	}
-	static getAuthorInfo(ctx) {
-		// await oxios.default.get()
-		ctx.body = 'asdf'
+	static async getAuthorInfo(ctx) {
+		let {type, urlname} = ctx.request.body
+		if(type=="explores") type="explore"
+		await oxios.default.get(`http://huaban.com/${type}/${urlname}`).then(res => {
+			res = res.split('app.page["pins"] = ')[1]
+			res = res.split('app._csr = true')[0]
+			res = res.substr(0, res.length-2)
+			// utils.mkdirFile(res)
+			ctx.body = {
+				res: 1,
+				result: res,
+				message: null
+			}
+		}).catch(err => {
+			throw new Error(err)
+		})
 	} 
 }
 	

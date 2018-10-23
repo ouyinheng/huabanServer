@@ -97,3 +97,33 @@
 
     
   
+    2018-10-23 18:20:57:
+    method: POST
+    url: /author
+    host: 192.168.31.45:3000
+    connection: keep-alive
+    cookie: undefined
+    accept: application/json, text/plain, */*
+    response: {"status":404,"message":"Not Found","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"POST","url":"/author","header":{"host":"192.168.31.45:3000","connection":"keep-alive","content-length":"37","accept":"application/json, text/plain, */*","origin":"http://localhost:4200","user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","content-type":"application/json","referer":"http://localhost:4200/huaban/anthor/explores/shizi","accept-encoding":"gzip, deflate","accept-language":"zh-CN,zh;q=0.9"}}
+    error: 
+    SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at getAuthorInfo (D:\oyhworkerspace\github\wechatServer\src\controllers\huaban.js:39:30)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\oyhworkerspace\github\wechatServer\app.js:48:9)
+
+    
+  
