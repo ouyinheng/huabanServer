@@ -1,7 +1,7 @@
 const router = require('koa-router')()
 const http = require('http');
 const fs = require('fs');
-const {getImages} = require('../controler/getImages')
+const { getImages, getHuaBan } = require('../controllers/getImages')
 
 router.get('/picture', async (ctx ,next) => {
     let {page} = ctx.request.query;
@@ -23,12 +23,29 @@ router.get('/picture', async (ctx ,next) => {
             var str = index<alt.length?alt[index].match(/alt\="(\S*)"/)[1]:str = '';
             obj.push({ src: item, alt: str })
         });
-        ctx.body = obj;
+        ctx.body = {
+            ret: 0,
+            result: obj,
+            message: null
+        }
     }).catch( err => {
         console.log(err)
     })
 })
-
+router.get('/huaban', async (ctx, next) => {
+    await getHuaBan().then(res=>{
+        let str = res.split('app.page["board"] = ')[1].split('app._csr = true')[0]
+        ctx.body = {
+            result: str.substr(0, str.length-2),
+            ret: 0,
+            message: null
+        }
+    }).catch(err=>{
+        ctx.response.status = 500;
+        ctx.response.message = '错误';
+        throw new Error(err)
+    })
+})
 module.exports = router
 
 

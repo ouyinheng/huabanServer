@@ -11,6 +11,7 @@ const cors = require('koa-cors');
 const index = require('./src/routes/index')
 const users = require('./src/routes/users')
 const picture = require('./src/routes/picture')
+const huaban = require('./src/routes/huaban')
 
 // error handler
 onerror(app)
@@ -53,6 +54,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(picture.routes(), picture.allowedMethods())
+app.use(huaban.routes(), huaban.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

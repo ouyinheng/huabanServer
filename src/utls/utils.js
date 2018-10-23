@@ -1,4 +1,13 @@
 const fs = require('fs')
+function mkdirFile(res) {
+  fs.writeFile(`./log/html/${getTime('timestamp')}.html`, res, async(err) => {
+    if(!err) {
+      await console.log('写入成功')
+    } else {
+      console.log('写入失败:--->'+err)
+    }
+  })
+}
 /**
  * 
  * @param {*} now 当前的位置
@@ -45,6 +54,9 @@ function getTime(format='yyyy-MM-dd') {
         break;
       case 'ss':
         str += dateGetter(index, len, timestamp.getSeconds());
+        break;
+      case 'timestamp':
+        str = timestamp.getTime();
         break;
       default:
         console.error(`日期格式错误 "${item}".`);
@@ -99,5 +111,5 @@ function setErrorLog(err, ctx) {
   })
 }
 module.exports = {
-    getTime, setErrorLog
+    getTime, setErrorLog, mkdirFile
 }

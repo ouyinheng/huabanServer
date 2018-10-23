@@ -1,0 +1,99 @@
+
+    2018-10-23 13:12:52:
+    method: GET
+    url: /huaban
+    host: 192.168.31.45:3000
+    connection: keep-alive
+    cookie: undefined
+    accept: application/json, text/plain, */*
+    response: {"status":404,"message":"Not Found","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"GET","url":"/huaban","header":{"host":"192.168.31.45:3000","connection":"keep-alive","accept":"application/json, text/plain, */*","origin":"http://localhost:4200","user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","referer":"http://localhost:4200/picture/huaban","accept-encoding":"gzip, deflate","accept-language":"zh-CN,zh;q=0.9"}}
+    error: 
+    ReferenceError: obj is not defined
+    at router.get (D:\oyhworkerspace\github\wechatServer\src\routes\picture.js:38:17)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\oyhworkerspace\github\wechatServer\app.js:47:9)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at views (D:\oyhworkerspace\github\wechatServer\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+
+    
+  
+    2018-10-23 13:25:16:
+    method: GET
+    url: /huaban
+    host: localhost:3000
+    connection: keep-alive
+    cookie: _uab_collina=154027207955452703552108; Hm_lvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272080; UM_distinctid=1669f5ec3e345f-0bd80a1e04273a-43450521-100200-1669f5ec3e72f5; Hm_lpvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272098; _cnzz_CV1256903590=is-logon%7Clogged-out%7C1540272099448; CNZZDATA1256903590=874292694-1540266684-%7C1540272084
+    accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    response: {"status":500,"message":"错误","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"GET","url":"/huaban","header":{"host":"localhost:3000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate, br","accept-language":"zh-CN,zh;q=0.9","cookie":"_uab_collina=154027207955452703552108; Hm_lvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272080; UM_distinctid=1669f5ec3e345f-0bd80a1e04273a-43450521-100200-1669f5ec3e72f5; Hm_lpvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272098; _cnzz_CV1256903590=is-logon%7Clogged-out%7C1540272099448; CNZZDATA1256903590=874292694-1540266684-%7C1540272084"}}
+    error: 
+    Error
+    at getHuaBan.then.catch.err (D:\oyhworkerspace\github\wechatServer\src\routes\picture.js:42:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+    
+  
+    2018-10-23 13:26:3:
+    method: GET
+    url: /huaban
+    host: localhost:3000
+    connection: keep-alive
+    cookie: _uab_collina=154027207955452703552108; Hm_lvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272080; UM_distinctid=1669f5ec3e345f-0bd80a1e04273a-43450521-100200-1669f5ec3e72f5; Hm_lpvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272098; _cnzz_CV1256903590=is-logon%7Clogged-out%7C1540272099448; CNZZDATA1256903590=874292694-1540266684-%7C1540272084
+    accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    response: {"status":500,"message":"错误","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"GET","url":"/huaban","header":{"host":"localhost:3000","connection":"keep-alive","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate, br","accept-language":"zh-CN,zh;q=0.9","cookie":"_uab_collina=154027207955452703552108; Hm_lvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272080; UM_distinctid=1669f5ec3e345f-0bd80a1e04273a-43450521-100200-1669f5ec3e72f5; Hm_lpvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272098; _cnzz_CV1256903590=is-logon%7Clogged-out%7C1540272099448; CNZZDATA1256903590=874292694-1540266684-%7C1540272084"}}
+    error: 
+    Error: ReferenceError: str is not defined
+    at getHuaBan.then.catch.err (D:\oyhworkerspace\github\wechatServer\src\routes\picture.js:42:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+    
+  
+    2018-10-23 13:39:54:
+    method: GET
+    url: /huaban
+    host: localhost:3000
+    connection: keep-alive
+    cookie: _uab_collina=154027207955452703552108; Hm_lvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272080; UM_distinctid=1669f5ec3e345f-0bd80a1e04273a-43450521-100200-1669f5ec3e72f5; CNZZDATA1256903590=874292694-1540266684-%7C1540272084; _cnzz_CV1256903590=is-logon%7Clogged-out%7C1540272787144; Hm_lpvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272786
+    accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    response: {"status":500,"message":"错误","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"GET","url":"/huaban","header":{"host":"localhost:3000","connection":"keep-alive","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate, br","accept-language":"zh-CN,zh;q=0.9","cookie":"_uab_collina=154027207955452703552108; Hm_lvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272080; UM_distinctid=1669f5ec3e345f-0bd80a1e04273a-43450521-100200-1669f5ec3e72f5; CNZZDATA1256903590=874292694-1540266684-%7C1540272084; _cnzz_CV1256903590=is-logon%7Clogged-out%7C1540272787144; Hm_lpvt_d4a0e7c3cd16eb58a65472f40e7ee543=1540272786"}}
+    error: 
+    Error: SyntaxError: Unexpected token ; in JSON at position 20866
+    at getHuaBan.then.catch.err (D:\oyhworkerspace\github\wechatServer\src\routes\picture.js:42:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+    
+  
+    2018-10-23 13:42:23:
+    method: GET
+    url: /huaban
+    host: 192.168.31.45:3000
+    connection: keep-alive
+    cookie: undefined
+    accept: application/json, text/plain, */*
+    response: {"status":500,"message":"错误","header":{"access-control-allow-origin":"http://localhost:4200","access-control-max-age":"5","access-control-allow-credentials":"true","access-control-allow-methods":"GET,HEAD,PUT,POST,DELETE"}}
+    request: {"method":"GET","url":"/huaban","header":{"host":"192.168.31.45:3000","connection":"keep-alive","accept":"application/json, text/plain, */*","origin":"http://localhost:4200","user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","referer":"http://localhost:4200/picture/huaban","accept-encoding":"gzip, deflate","accept-language":"zh-CN,zh;q=0.9"}}
+    error: 
+    Error: TypeError: str.splice is not a function
+    at getHuaBan.then.catch.err (D:\oyhworkerspace\github\wechatServer\src\routes\picture.js:46:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+    
+  
