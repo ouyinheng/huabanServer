@@ -26,14 +26,19 @@ class HuaBanControler {
 				}
 				return;
 			}
-			res = res.split('app.page["recommends"] = ')[1]
-			res = res.split('app._csr = true')[0]
-			res = res.substr(0, res.length-2)
-			res = res.split(';')[0]
-			// utils.mkdirFile(res)
+			let recom = res.split('app.page["recommends"] = ')[1]
+			recom = recom.split('app._csr = true')[0]
+			recom = recom.substr(0, res.length-2)
+			recom = recom.split(';')[0]
+			let banner = res.split('app.page["banners"] = ')[1]
+			banner = banner.split('app._csr = true')[0]
+			banner = banner.substr(0, res.length-2)
+			
+			// let banner = res.split('app.page["banners"] = ')[1]
+			utils.mkdirFile(banner)
 			ctx.body = {
 				res: 0,
-				result: res,
+				result: recom,
 				message: '请求成功'
 			}
 		}).catch((err) => {
