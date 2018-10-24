@@ -2,12 +2,9 @@ const router = require('koa-router')()
 // const test = require('../db/login');
 const utils = require('../utls/utils');
 const jwt = require('jsonwebtoken');
-
-router.get('/', async (ctx, next) => {
-  await ctx.render('index', {
-    title: 'Hello Koa 2!!'
-  })
-})
+const APIControler = require('../controllers/api')
+// markdown
+router.get('/', APIControler.default.renderMd)
 
 router.get('/string', async (ctx, next) => {
   console.error('asdf', ctx.response)

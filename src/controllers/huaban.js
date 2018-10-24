@@ -15,7 +15,17 @@ class HuaBanControler {
 		this.host = host;
 	}
 	static async getHBImage(ctx) {
-		await oxios.default.get('http://huaban.com/').then((res) => {
+		let {page} = ctx.request.query||1;
+		await oxios.default.get(`http://huaban.com/?page=${page}`).then((res) => {
+				// utils.mkdirFile(res)
+			if(page>=2) {
+				ctx.body = {
+					res: 0,
+					result: res,
+					message: '请求成功'
+				}
+				return;
+			}
 			res = res.split('app.page["recommends"] = ')[1]
 			res = res.split('app._csr = true')[0]
 			res = res.substr(0, res.length-2)
@@ -24,7 +34,7 @@ class HuaBanControler {
 			ctx.body = {
 				res: 0,
 				result: res,
-				message: null
+				message: '请求成功'
 			}
 		}).catch((err) => {
 			ctx.body = {
@@ -37,13 +47,25 @@ class HuaBanControler {
 	static async getAuthorInfo(ctx) {
 		let {type, urlname} = ctx.request.body
 		if(type=="explores") type="explore"
-		await oxios.default.get(`http://huaban.com/${type}/${urlname}`).then(res => {
+		let url = type == 'users'?`http://huaban.com/${urlname}`:`http://huaban.com/${type}/${urlname}`;
+		await oxios.default.get(url).then(res => {
 			// utils.mkdirFile(res)
-			res = res.split('app.page["pins"] = ')[1]
-			res = res.split('app._csr = true')[0]
-			res = res.substr(0, res.length-2)
+			if(type=='explore') {
+				res = res.split('app.page["pins"] = ')[1]
+				res = res.split('app._csr = true')[0]
+				res = res.substr(0, res.length-2)
+			}
+			if(type == 'boards') {
+				res = res.split('app.page["board"] = ')[1]
+				res = res.split('app._csr = true')[0]
+				res = res.substr(0, res.length-2)
+				console.log(type, urlname)
+			}
+			if(type == 'users') {
+				console.log(type, urlname)
+			}
 			ctx.body = {
-				res: 1,
+				res: 0,
 				result: res,
 				message: null
 			}

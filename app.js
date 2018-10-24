@@ -6,7 +6,7 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const utils = require('./src/utls/utils')
-const cors = require('koa-cors');
+const cors = require('koa2-cors');
 
 const index = require('./src/routes/index')
 const users = require('./src/routes/users')
