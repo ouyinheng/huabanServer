@@ -26,22 +26,33 @@ class HuaBanControler {
 				}
 				return;
 			}
-			let recom = res.split('app.page["recommends"] = ')[1]
-			recom = recom.split('app._csr = true')[0]
-			recom = recom.substr(0, res.length-2)
-			recom = recom.split(';')[0]
-			let banner = res.split('app.page["banners"] = ')[1]
-			banner = banner.split('app._csr = true')[0]
-			banner = banner.substr(0, res.length-2)
 			
-			// let banner = res.split('app.page["banners"] = ')[1]
-			utils.mkdirFile(banner)
+			// 网页标题
+			let title = res.split('<title>')[1].split('</title>')[0];
+			// 轮播图
+			let banner = res.split('app.page["banners"] = ')[1].split('app.page["bannerExploreProms"]')[0]
+			banner = banner.substr(0, banner.length-2)
+			// 大家正在关注
+			let explores = res.split('app.page["explores"] = ')[1].split('app.page["banners"] = ')[0]
+			explores = explores.substr(0, explores.length-2)
+			// 为您推荐
+			let recom = res.split('app.page["recommends"] = ')[1].split('app._csr = true')[0]
+			recom = recom.substr(0, recom.length-2)
+			recom = recom.split(';')[0]
+			// categories：兴趣
+			let menu = res.split('app["settings"] = ')[1].split('app["req"] = ')[0];
+			menu = menu.substr(0, menu.length-2)
+
+			let lb = res.split('app["req"] = ')[1].split('app["page"] = {"$url":"/?page=1"};')[0]
+			lb = lb.substr(0, lb.length-2)
+
 			ctx.body = {
 				res: 0,
-				result: recom,
+				result: { recom, title, menu, banner, explores },
 				message: '请求成功'
 			}
 		}).catch((err) => {
+			ctx.throw(500);
 			ctx.body = {
 				res: 1,
 				result: null,
@@ -56,13 +67,11 @@ class HuaBanControler {
 		await oxios.default.get(url).then(res => {
 			// utils.mkdirFile(res)
 			if(type=='explore') {
-				res = res.split('app.page["pins"] = ')[1]
-				res = res.split('app._csr = true')[0]
+				res = res.split('app.page["pins"] = ')[1].split('app._csr = true')[0]
 				res = res.substr(0, res.length-2)
 			}
 			if(type == 'boards') {
-				res = res.split('app.page["board"] = ')[1]
-				res = res.split('app._csr = true')[0]
+				res = res.split('app.page["board"] = ')[1].split('app._csr = true')[0]
 				res = res.substr(0, res.length-2)
 				console.log(type, urlname)
 			}
