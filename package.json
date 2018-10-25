@@ -1,7 +1,15 @@
 {
   "name": "weChat-serve",
   "version": "0.1.0",
+  "description": "花瓣 NodeJS 版 API",
   "private": true,
+  "keywords": [
+    "花瓣",
+    "设计",
+    "huaban",
+    "图片",
+    "花瓣nodejs"
+  ],
   "scripts": {
     "start": "node bin/www",
     "sup": "supervisor bin/www",
