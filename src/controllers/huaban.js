@@ -88,11 +88,9 @@ class HuaBanControler {
 		})
 	} 
 	static async loadMore(ctx) {
-		let {id, max, limit, wfl} = ctx.request.body;
-		console.log(id, max, limit);
+		let {id, max, limit} = ctx.request.body;
 		let url = `http://huaban.com/boards/${id}/?jntz2zy5&max=${max}&limit=${limit}&wfl=1`
 		await oxios.default.get(url).then(res => {
-			// utils.mkdirFile(res)
 			let banner = res.split('app.page["board"] =')[1].split('app._csr = true')[0]
 			banner = banner.substr(0, banner.length-2)
 			banner = JSON.parse(banner);
@@ -117,7 +115,66 @@ class HuaBanControler {
 			}
 			// throw new Error(err)
 		})
-		
+	}
+	static async loadMoreE(ctx) {
+		let {id, max, limit} = ctx.request.body;
+		console.log(id, max, limit);
+		let url = `http://huaban.com/explore/${id}/?jntz2zy5&max=${max}&limit=${limit}&wfl=1`;
+		await oxios.default.get(url).then(res => {
+			// utils.mkdirFile(res)
+			let banner = res.split('app.page["pins"] = ')[1].split('app._csr = true')[0]
+			banner = banner.substr(0, banner.length-2)
+			banner = JSON.parse(banner);
+			if(banner.length==0) {
+				ctx.body = {
+					res: 0,
+					result: null,
+					message: '请求成功'
+				}
+			} else {
+				ctx.body = {
+					res: 0,
+					result: banner,
+					message: '请求成功'
+				}
+			}
+		}).catch(err=>{
+			ctx.body = {
+				res: 1,
+				result: null,
+				message: 'error'
+			}
+		})
+	}
+	static async showInfo(ctx) {
+		let {id} = ctx.request.body;
+		console.log(id);
+		let url = `http://huaban.com/pins/${id}/?jnudvv2a`;
+		await oxios.default.get(url).then(res => {
+			utils.mkdirFile(res)
+			let banner = res.split('app["page"] = ')[1].split('app["timestamp"]')[0]
+			banner = banner.substr(0, banner.length-2)
+			banner = JSON.parse(banner);
+			if(banner.length==0) {
+				ctx.body = {
+					res: 0,
+					result: null,
+					message: '请求成功'
+				}
+			} else {
+				ctx.body = {
+					res: 0,
+					result: banner,
+					message: '请求成功'
+				}
+			}
+		}).catch(err=>{
+			ctx.body = {
+				res: 1,
+				result: null,
+				message: 'error'
+			}
+		})
 	}
 }
 	
