@@ -87,6 +87,38 @@ class HuaBanControler {
 			throw new Error(err)
 		})
 	} 
+	static async loadMore(ctx) {
+		let {id, max, limit, wfl} = ctx.request.body;
+		console.log(id, max, limit);
+		let url = `http://huaban.com/boards/${id}/?jntz2zy5&max=${max}&limit=${limit}&wfl=1`
+		await oxios.default.get(url).then(res => {
+			// utils.mkdirFile(res)
+			let banner = res.split('app.page["board"] =')[1].split('app._csr = true')[0]
+			banner = banner.substr(0, banner.length-2)
+			banner = JSON.parse(banner);
+			if(banner.pins.length==0) {
+				ctx.body = {
+					res: 0,
+					result: null,
+					message: '请求成功'
+				}
+			} else {
+				ctx.body = {
+					res: 0,
+					result: banner,
+					message: '请求成功'
+				}
+			}
+		}).catch(err=>{
+			ctx.body = {
+				res: 1,
+				result: null,
+				message: 'error'
+			}
+			// throw new Error(err)
+		})
+		
+	}
 }
 	
 exports.default = HuaBanControler;
