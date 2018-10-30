@@ -151,7 +151,7 @@ class HuaBanControler {
 		console.log(id);
 		let url = `http://huaban.com/pins/${id}/?jnudvv2a`;
 		await oxios.default.get(url).then(res => {
-			utils.mkdirFile(res)
+			// utils.mkdirFile(res)
 			let banner = res.split('app["page"] = ')[1].split('app["timestamp"]')[0]
 			banner = banner.substr(0, banner.length-2)
 			banner = JSON.parse(banner);
