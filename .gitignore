@@ -5,6 +5,7 @@
 /dist
 .idea
 .vscode
+/html/
 # misc
 .DS_Store
 npm-debug.log*

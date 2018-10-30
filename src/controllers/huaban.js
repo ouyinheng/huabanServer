@@ -21,7 +21,7 @@ class HuaBanControler {
 			if(page>=2) {
 				ctx.body = {
 					res: 0,
-					result: res,
+					result: JSON.parse(res),
 					message: '请求成功'
 				}
 				return;
@@ -32,19 +32,23 @@ class HuaBanControler {
 			// 轮播图
 			let banner = res.split('app.page["banners"] = ')[1].split('app.page["bannerExploreProms"]')[0]
 			banner = banner.substr(0, banner.length-2)
+			banner = JSON.parse(banner)
 			// 大家正在关注
-			let explores = res.split('app.page["explores"] = ')[1].split('app.page["banners"] = ')[0]
+			let explores = res.split('app.page["explores"] = ')[1].split('app.page["hot_words"] =')[0]
 			explores = explores.substr(0, explores.length-2)
+			explores = JSON.parse(explores)
 			// 为您推荐
 			let recom = res.split('app.page["recommends"] = ')[1].split('app._csr = true')[0]
 			recom = recom.substr(0, recom.length-2)
 			recom = recom.split(';')[0]
+			recom = JSON.parse(recom)
 			// categories：兴趣
 			let menu = res.split('app["settings"] = ')[1].split('app["req"] = ')[0];
 			menu = menu.substr(0, menu.length-2)
+			menu = JSON.parse(menu)
 
-			let lb = res.split('app["req"] = ')[1].split('app["page"] = {"$url":"/?page=1"};')[0]
-			lb = lb.substr(0, lb.length-2)
+			// let lb = res.split('app["req"] = ')[1].split('app["page"] = {"$url":"/?page=1"};')[0]
+			// lb = lb.substr(0, lb.length-2)
 
 			ctx.body = {
 				res: 0,
@@ -52,6 +56,7 @@ class HuaBanControler {
 				message: '请求成功'
 			}
 		}).catch((err) => {
+			console.log(err)
 			ctx.throw(500);
 			ctx.body = {
 				res: 1,
@@ -65,10 +70,17 @@ class HuaBanControler {
 		if(type=="explores") type="explore"
 		let url = type == 'users'?`http://huaban.com/${urlname}`:`http://huaban.com/${type}/${urlname}`;
 		await oxios.default.get(url).then(res => {
-			// utils.mkdirFile(res)
+			utils.mkdirFile(res)
 			if(type=='explore') {
-				res = res.split('app.page["pins"] = ')[1].split('app._csr = true')[0]
-				res = res.substr(0, res.length-2)
+				let info = res.split('app.page["pins"] = ')[1].split('app._csr = true')[0]
+				info = JSON.parse(info.substr(0, info.length-2))
+				let name =  res.split('app.page["name"] = ')[1].split('app.page["urlname"] ')[0]
+				name = name.substr(0, name.length-2)
+				let description = res.split('app.page["description"] = ')[1].split('app.page["recommended_users"]')[0]
+				description = description.substr(0, description.length-2)
+				res = {
+					info, name, description
+				}
 			}
 			if(type == 'boards') {
 				res = res.split('app.page["board"] = ')[1].split('app._csr = true')[0]
