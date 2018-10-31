@@ -96,14 +96,15 @@ class HuaBanControler {
 		if(type=="explores") type="explore"
 		let url = type == 'users'?`http://huaban.com/${urlname}`:`http://huaban.com/${type}/${urlname}`;
 		await oxios.default.get(url).then(res => {
-			utils.mkdirFile(res)
+			// utils.mkdirFile(res)
 			if(type=='explore') {
 				let info = res.split('app.page["pins"] = ')[1].split('app._csr = true')[0]
 				info = JSON.parse(info.substr(0, info.length-2))
 				let name =  res.split('app.page["name"] = ')[1].split('app.page["urlname"] ')[0]
-				name = name.substr(0, name.length-2)
+				name = JSON.parse(name.substr(0, name.length-2))
 				let description = res.split('app.page["description"] = ')[1].split('app.page["recommended_users"]')[0]
-				description = description.substr(0, description.length-2)
+				description = description.substr(0, description.length-2);
+				description = JSON.parse(description)
 				res = {
 					info, name, description
 				}
