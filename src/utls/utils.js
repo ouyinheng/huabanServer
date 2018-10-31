@@ -10,6 +10,31 @@ function mkdirFile(res) {
 }
 /**
  * 
+ * @param {string} content 图片内容
+ * @param {string} name 图片名字
+ */
+function saveImage(content, name=getTime('timestamp') ) {
+  fs.writeFile(`./log/images/${name}.jpg`,content,'binary', function (err) {
+      if (err) throw err;
+      console.log('保存完成');
+  });
+}
+/**
+ * 
+ * @param {string} content 文件内容
+ * @param {string} name 文件名
+ * @param {string} decode 文件编码
+ * @param {string} filePath 文件保存路径
+ * @param {string} type 文件类型
+ */
+function saveFile(filePath="./log", name=getTime('timestamp'), type="jpg", content,  decode='utf-8') {
+  fs.writeFile(filePath+name+type, content, decode,  (err) => {
+    if (err) throw err;
+    console.log('保存完成');
+  })
+}
+/**
+ * 
  * @param {*} now 当前的位置
  * @param {*} len 总长度
  * @param {*} date 日期
@@ -111,5 +136,5 @@ function setErrorLog(err, ctx) {
   })
 }
 module.exports = {
-    getTime, setErrorLog, mkdirFile
+    getTime, setErrorLog, mkdirFile, saveImage, saveFile
 }

@@ -5,16 +5,13 @@ class oxios {
   static get(url, decode='utf-8') {
     return new Promise((resolve, reject) => {
       http.get(url, async res => {
-          var chunks=[];
-          var size=0;
+          let content = '';
+          res = res.setEncoding(decode)
           res.on('data',function(chunk){
-              chunks.push(chunk);
-              size += chunk.length;
+              content+=chunk;
           });
           res.on('end',function(){
-              var buf=Buffer.concat(chunks, size);
-              let str=Iconv.decode(buf,decode);
-              resolve(str)
+              resolve(content)
           });
       }).on('error', function (err) {
           reject(err)

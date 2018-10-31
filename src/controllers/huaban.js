@@ -1,6 +1,8 @@
 // http://huaban.com/
 const oxios = require('../utls/http.request')
 const utils = require('../utls/utils')
+let http = require('http')
+let fs = require('fs')
 class HuaBanControler {
 	//首页--推荐
 	/**
@@ -47,9 +49,33 @@ class HuaBanControler {
 			menu = menu.substr(0, menu.length-2)
 			menu = JSON.parse(menu)
 
+			let hostimg = 'http://img.hb.aicdn.com/'
 			// let lb = res.split('app["req"] = ')[1].split('app["page"] = {"$url":"/?page=1"};')[0]
 			// lb = lb.substr(0, lb.length-2)
+			// 保存图片
+			// recom.map(item => {
+			// 	console.log(item.cover.key)
+			// 	let url = hostimg+item.cover.key;
+			// 	http.get( url, function (res) {
+			// 			res.setEncoding('binary');//转成二进制
+			// 			var content = '';
+			// 			res.on('data', function (data) {
+			// 				content+=data;
+			// 			}).on('end', function () {
+			// 				fs.writeFile(`./log/images/${item.cover.key}.jpg`,content,'binary', function (err) {
+			// 						if (err) throw err;
+			// 						console.log('保存完成');
+			// 				});
+			// 			});
+			// 	});
+			// })
 
+			// recom.map(item => {
+			// 	let url = hostimg+item.cover.key;
+			// 	oxios.default.get(url, 'binary').then(res=> {
+			// 		utils.saveImage(res)
+			// 	})
+			// })
 			ctx.body = {
 				res: 0,
 				result: { recom, title, menu, banner, explores },
