@@ -21,7 +21,7 @@ app.use(cors({
       if (ctx.url === '/cors') {
           return "*"; // 允许来自所有域名请求
       }
-      return 'http://localhost:4200';
+      return '*';
   },
   exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
   maxAge: 5,

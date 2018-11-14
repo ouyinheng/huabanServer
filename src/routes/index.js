@@ -4,7 +4,7 @@ const utils = require('../utls/utils');
 const jwt = require('jsonwebtoken');
 const APIControler = require('../controllers/api')
 // markdown
-// router.get('/', APIControler.default.renderMd)
+router.get('/', APIControler.default.renderMd)
 
 router.get('/string', async (ctx, next) => {
   console.error('asdf', ctx.response)
