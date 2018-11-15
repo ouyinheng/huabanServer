@@ -1,0 +1,31 @@
+
+    2018-11-15 17:9:12:
+    method: GET
+    url: /
+    host: localhost:3000
+    connection: keep-alive
+    cookie: undefined
+    accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    response: {"status":404,"message":"Not Found","header":{"vary":"Origin","access-control-allow-origin":"*","access-control-expose-headers":"WWW-Authenticate,Server-Authorization"}}
+    request: {"method":"GET","url":"/","header":{"host":"localhost:3000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.10 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate, br","accept-language":"zh-CN,zh;q=0.9"}}
+    error: 
+    Error: ENOENT: no such file or directory, open 'D:\oyhworkerspace\github\wechatServer\doc\api.md'
+    at Object.fs.openSync (fs.js:646:18)
+    at Object.fs.readFileSync (fs.js:551:33)
+    at renderMd (D:\oyhworkerspace\github\wechatServer\src\controllers\api.js:8:18)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\oyhworkerspace\github\wechatServer\app.js:47:9)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at views (D:\oyhworkerspace\github\wechatServer\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (D:\oyhworkerspace\github\wechatServer\node_modules\koa-compose\index.js:42:32)
+    at send.then.done (D:\oyhworkerspace\github\wechatServer\node_modules\koa-static\index.js:43:20)
+    at <anonymous>
+
+    
+  
