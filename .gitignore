@@ -6,6 +6,8 @@
 .idea
 .vscode
 /html/
+/error/
+/images/
 # misc
 .DS_Store
 npm-debug.log*

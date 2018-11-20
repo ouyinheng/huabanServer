@@ -1,4 +1,14 @@
 const fs = require('fs')
+// 中文转码
+function url_encode(url){
+  url = encodeURIComponent(url);
+  url = url.replace(/\%3A/g, ":");
+  url = url.replace(/\%2F/g, "/");
+  url = url.replace(/\%3F/g, "?");
+  url = url.replace(/\%3D/g, "=");
+  url = url.replace(/\%26/g, "&");
+  return url;
+}
 function mkdirFile(res) {
   fs.writeFile(`./log/html/${getTime('timestamp')}.html`, res, async(err) => {
     if(!err) {
@@ -136,5 +146,5 @@ function setErrorLog(err, ctx) {
   })
 }
 module.exports = {
-    getTime, setErrorLog, mkdirFile, saveImage, saveFile
+    getTime, setErrorLog, mkdirFile, saveImage, saveFile, url_encode
 }

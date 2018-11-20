@@ -18,6 +18,7 @@ class HuaBanControler {
 	}
 	static async getHBImage(ctx) {
 		let {page} = ctx.request.query||1;
+		console.log(page)
 		await oxios.default.get(`http://huaban.com/?page=${page}`).then((res) => {
 				// utils.mkdirFile(res)
 			if(page>=2) {
@@ -40,7 +41,7 @@ class HuaBanControler {
 			explores = explores.substr(0, explores.length-2)
 			explores = JSON.parse(explores)
 			// 为您推荐
-			let recom = res.split('app.page["recommends"] = ')[1].split('app._csr = true')[0]
+			let recom = res.split('app.page["recommends"] = ')[1].split('app.page["explores"] =')[0]
 			recom = recom.substr(0, recom.length-2)
 			recom = recom.split(';')[0]
 			recom = JSON.parse(recom)

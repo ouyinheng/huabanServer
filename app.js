@@ -12,7 +12,7 @@ const index = require('./src/routes/index')
 const users = require('./src/routes/users')
 const picture = require('./src/routes/picture')
 const huaban = require('./src/routes/huaban')
-
+const reader = require('./src/routes/reader')
 // error handler
 onerror(app)
 // 跨域
@@ -54,7 +54,7 @@ app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(picture.routes(), picture.allowedMethods())
 app.use(huaban.routes(), huaban.allowedMethods())
-
+app.use(reader.routes(), reader.allowedMethods())
 // error-handling
 app.on('error', (err, ctx) => {
   console.log('server error------------', err.stack, '------------')
